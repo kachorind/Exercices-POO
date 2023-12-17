@@ -53,9 +53,9 @@ class Hero(NPC):
    def subir_dommage(self, dommage):
        print(f"{self.nom} subit {dommage} points de dommage!")
 
+
 kobold = Kobold(nom = 'Kobold #1', race = 'Kobold', espece = 'Monstre', profession = 'Voleur')
 hero = Hero(nom = 'Héro #1', race = 'Humain', espece = 'Héro', profession = 'Guerrier')
-
 
 kobold.afficher_caracteristiques()
 hero.afficher_caracteristiques()
