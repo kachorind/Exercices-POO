@@ -1,0 +1,65 @@
+# Devina Kachorin et Julieta Maria Fonseca Nava
+# 14 décembre 2023
+# Exercice POO Partie 2
+
+import random
+
+
+def de():
+    list = []
+    for i in range (1,4):
+        list.append(random.randint(1,6))
+
+    number1 = (max(list))
+    list.remove(number1)
+    number2 = (max(list))
+    list.remove(number2)
+    number3 = (max(list))
+    list.remove(number3)
+    return number1 + number2 + number3
+
+
+class NPC():
+   def __init__(self, nom, race, espece, profession):
+       self.force = de()
+       self.agility = de()
+       self.constitution = de()
+       self.intelligence = de()
+       self.sagesse = de()
+       self.charisme = de()
+       self.classe_armure = random.randint(1,12)
+       self.nom = nom
+       self.race = race
+       self.espece = espece
+       self.point_de_vie = random.randint(1,20)
+       self.profession = profession
+
+   def afficher_caracteristiques(self):
+       print(f"Nom: {self.nom}, Race: {self.race}, Espèce: {self.espece}, Profession: {self.profession}")
+       print(f"Points de vie: {self.point_de_vie}, Classe d'armure: {self.classe_armure}, Constitution: {self.constitution}, Force: {self.force}\n"
+             f"Agilité: {self.agility}, Intelligence: {self.intelligence}, Sagesse: {self.sagesse}, Charisme: {self.charisme}\n")
+
+
+class Kobold(NPC):
+   def attaquer(self, cible):
+       print(f"{self.nom} attaque {cible.nom}!")
+
+   def subir_dommage(self, dommage):
+       print(f"{self.nom} subit {dommage} points de dommage!")
+
+class Hero(NPC):
+   def attaquer(self, cible):
+       print(f"{self.nom} attaque {cible.nom}!")
+
+   def subir_dommage(self, dommage):
+       print(f"{self.nom} subit {dommage} points de dommage!")
+
+kobold = Kobold(nom = 'Kobold #1', race = 'Kobold', espece = 'Monstre', profession = 'Voleur')
+hero = Hero(nom = 'Héro #1', race = 'Humain', espece = 'Héro', profession = 'Guerrier')
+
+
+kobold.afficher_caracteristiques()
+hero.afficher_caracteristiques()
+
+kobold.attaquer(hero)
+hero.subir_dommage(5)
