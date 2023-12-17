@@ -1,4 +1,4 @@
-# Devina Kachorin et Julieta Maria Fonseca Nava
+# Devina Kachorin et Julieta María Fonseca Nava
 # 14 décembre 2023
 # Exercice POO Partie 2
 
@@ -54,11 +54,10 @@ class Hero(NPC):
        print(f"{self.nom} subit {dommage} points de dommage!")
 
 
-kobold = Kobold(nom = 'Kobold #1', race = 'Kobold', espece = 'Monstre', profession = 'Voleur')
-hero = Hero(nom = 'Héro #1', race = 'Humain', espece = 'Héro', profession = 'Guerrier')
+kobold = Kobold(nom = "Kobold #1", race = "Kobold", espece = "Monstre", profession = "Voleur")
+hero = Hero(nom = "Héro #1", race = "Humain", espece = "Héro", profession = "Guerrier")
 
 kobold.afficher_caracteristiques()
 hero.afficher_caracteristiques()
-
 kobold.attaquer(hero)
 hero.subir_dommage(5)
