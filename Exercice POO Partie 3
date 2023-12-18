@@ -62,7 +62,6 @@ class Hero(NPC):
            print("C'est une attaque ratée!")
            return
 
-
        elif (attaque > 1) and (attaque < 20):
            if attaque >= self.classe_armure:
                print("C'est une attaque réussie!")
