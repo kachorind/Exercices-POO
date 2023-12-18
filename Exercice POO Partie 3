@@ -51,7 +51,7 @@ class Kobold(NPC):
 class Hero(NPC):
    def attaquer(self, cible):
        attaque = random.randint(1,20)
-       print(f"{self.nom} lance un dé à 20 faces et obitent le nombre {attaque}!")
+       print(f"{self.nom} lance un dé à 20 faces et obtient le nombre {attaque}!")
 
        if attaque == 20:
            print("C'est une attaque critique!")
@@ -68,7 +68,6 @@ class Hero(NPC):
                print("C'est une attaque réussie!")
                dommage = random.randint(1, 6)
                cible.subir_dommage(dommage)
-               print(f"Force de la cible: {cible.point_de_vie}")
 
            else:
                print("Le coup n'a pas fonctionné!")
@@ -85,4 +84,3 @@ hero = Hero(nom = "Héro #1", race = "Humain", espece = "Héro", profession = "G
 kobold.afficher_caracteristiques()
 hero.afficher_caracteristiques()
 hero.attaquer(kobold)
-kobold.subir_dommage(6)
