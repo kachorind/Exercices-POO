@@ -44,7 +44,9 @@ class Kobold(NPC):
        print(f"{self.nom} attaque {cible.nom}!")
 
    def subir_dommage(self, dommage):
+       self.point_de_vie -= (self.classe_armure - dommage)
        print(f"{self.nom} subit {dommage} points de dommage!")
+       print(f"Le niveau de vie est de {self.point_de_vie}")
 
 class Hero(NPC):
    def attaquer(self, cible):
@@ -54,21 +56,28 @@ class Hero(NPC):
        if attaque == 20:
            print("C'est une attaque critique!")
            dommage = random.randint(1,8)
+           cible.subir_dommage(dommage)
 
        elif attaque == 1:
            print("C'est une attaque ratée!")
            return
 
-       elif attaque >= self.classe_armure:
-           print("C'est une attaque réussie!")
-           dommage = random.randint(1,6)
 
-       else:
-           print("Le coup n'a pas fonctionné!")
+       elif (attaque > 1) and (attaque < 20):
+           if attaque >= self.classe_armure:
+               print("C'est une attaque réussie!")
+               dommage = random.randint(1, 6)
+               cible.subir_dommage(dommage)
+               print(f"Force de la cible: {cible.point_de_vie}")
 
+           else:
+               print("Le coup n'a pas fonctionné!")
 
    def subir_dommage(self, dommage):
+       self.point_de_vie -= (self.classe_armure - dommage)
        print(f"{self.nom} subit {dommage} points de dommage!")
+       print(f"Le niveau de vie est de {self.point_de_vie}")
+
 
 kobold = Kobold(nom = "Kobold #1", race = "Kobold", espece = "Monstre", profession = "Voleur")
 hero = Hero(nom = "Héro #1", race = "Humain", espece = "Héro", profession = "Guerrier")
@@ -76,3 +85,4 @@ hero = Hero(nom = "Héro #1", race = "Humain", espece = "Héro", profession = "G
 kobold.afficher_caracteristiques()
 hero.afficher_caracteristiques()
 hero.attaquer(kobold)
+kobold.subir_dommage(6)
